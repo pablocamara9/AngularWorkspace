@@ -1,0 +1,14 @@
+<h1>EJEMPLO PROPERTY BINDING</h1>
+<div class="product">
+    <div class="product--image">
+        <img [src]="product.image" [alt]="product.name">
+        <div class="product--info">
+            <h1 class="product--info__title">{{product.name}}</h1>
+            <p class="product--info__description">{{product.description}}</p>
+        </div>
+        <div class="product--actions">
+            <button [disabled]="!(product.uniAvailable > 1)" class="product--actions__btn buy">BUY</button>
+            <button class="product--actions__btn buy add">+ CART</button>
+        </div>
+    </div>
+</div>

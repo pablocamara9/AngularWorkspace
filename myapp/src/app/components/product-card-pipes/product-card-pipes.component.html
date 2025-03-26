@@ -1,0 +1,49 @@
+<h1>EJEMPLO PIPES</h1>
+<div class="product">
+    <div class="product--image">
+        <img 
+            (mouseenter)="onMouseEnter()"
+            (mouseleave)="onMouseLeave()"
+            [src]="product.image" 
+            [alt]="product.name"
+            [class]="'border-btn'"
+            [style]="productImgStyle"
+        >
+        <div class="product--info">
+            <h1 class="product--info__title">{{product.name | uppercase}}</h1>
+            <h3>{{product.date | date}}</h3>
+            <p class="product--info__description">{{product.description}}</p>
+            <div class="product--info__price">
+                <h1>{{product.price | number | currency}}</h1>
+            </div>
+        </div>
+        <div class="product--actions">
+            <button
+                (click)="buyProduct()"
+                [disabled]="!(product.uniAvailable > 1)" class="product--actions__btn buy"
+            >BUY</button>
+            <button 
+                (click)="addToCart()"
+                class="product--actions__btn buy add"
+            >+ CART</button>
+        </div>
+    </div>
+</div>
+<form [style.display]="!formState ? 'none' : 'flex'" class="form">
+    <h2>Datos de compra</h2>
+    <label for="address">Dirección</label>
+    <input 
+        [(ngModel)]="address"
+        type="text" 
+        name="adress" 
+        id="address">
+    <label for="postalCode">Código postal</label>
+    <input 
+        [(ngModel)]="postalCode"
+        type="number" 
+        name="postalCode" 
+        id="postalCode">
+    <div class="actions">
+        <button (click)="orderProduct()" type="submit">ORDER</button>
+    </div>
+</form>

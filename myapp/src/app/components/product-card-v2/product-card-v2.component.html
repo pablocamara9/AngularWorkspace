@@ -1,0 +1,20 @@
+<h1>EJEMPLO ATTRIBUTE BINDING</h1>
+<div class="product">
+    <div class="product--image">
+        <img 
+            [src]="product.image" 
+            [alt]="product.name"
+            [class]="'border-btn'"
+            [style]="product.uniAvailable < 1 ? productImgStyle : ''"
+        >
+        <div class="product--info">
+            <h1 class="product--info__title">{{product.name}}</h1>
+            <p class="product--info__description">{{product.description}}</p>
+        </div>
+        <div class="product--actions">
+            <button [disabled]="!(product.uniAvailable > 1)" class="product--actions__btn buy">BUY</button>
+            <button class="product--actions__btn buy add">+ CART</button>
+        </div>
+    </div>
+</div>
+

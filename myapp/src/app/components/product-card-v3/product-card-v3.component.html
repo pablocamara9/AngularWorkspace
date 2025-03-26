@@ -1,0 +1,28 @@
+<h1>EJEMPLO EVENT BINDING</h1>
+<div class="product">
+    <div class="product--image">
+        <img 
+            (mouseenter)="onMouseEnter()"
+            (mouseleave)="onMouseLeave()"
+            [src]="product.image" 
+            [alt]="product.name"
+            [class]="'border-btn'"
+            [style]="productImgStyle"
+        >
+        <div class="product--info">
+            <h1 class="product--info__title">{{product.name}}</h1>
+            <p class="product--info__description">{{product.description}}</p>
+        </div>
+        <div class="product--actions">
+            <button
+                (click)="buyProduct()"
+                [disabled]="!(product.uniAvailable > 1)" class="product--actions__btn buy"
+            >BUY</button>
+            <button 
+                (click)="addToCart()"
+                class="product--actions__btn buy add"
+            >+ CART</button>
+        </div>
+    </div>
+</div>
+
