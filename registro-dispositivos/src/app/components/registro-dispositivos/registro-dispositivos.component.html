@@ -6,8 +6,10 @@
     </div>
     <div class="col-md-3">
       <select (change)="cambiarVista($event)" v-model="itemsPerPage" class="form-select">
+        <option [value]="1">1 por página</option>
         <option [value]="5" selected>5 por página</option>
         <option [value]="10">10 por página</option>
+        <option [value]="15">15 por página</option>
         <option [value]="20">20 por página</option>
         <option [value]="devices.length">Todos</option>
       </select>
@@ -106,7 +108,7 @@
                     
     </table>
     <div class="mt-2 text-muted">
-      Total de registros: 0
+      Total de registros: {{itemsPerPage}}
     </div>
   </div>
 
