@@ -1,7 +1,23 @@
 header {
-    color: #2c3e50;
-  }
-  
-  .card {
-    margin-bottom: 20px;
-  }
+  color: #2c3e50;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.text-green {
+  color: green;
+}
+
+.text-yellow {
+  color: orange;
+}
+
+.text-red {
+  color: red;
+}
+
+.text-default {
+  color: black;
+}

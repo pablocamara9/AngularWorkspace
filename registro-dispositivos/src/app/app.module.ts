@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { RegistroDispositivosComponent } from './components/registro-dispositivos/registro-dispositivos.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { DeviceStatusPipe } from './pipes/device-status.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistroDispositivosComponent
+    RegistroDispositivosComponent,
+    DeviceStatusPipe
   ],
   imports: [
     BrowserModule,

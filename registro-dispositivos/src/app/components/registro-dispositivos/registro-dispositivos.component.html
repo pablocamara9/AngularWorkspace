@@ -88,13 +88,13 @@
                             <td>{{ device.idas_control }}</td> 
                             <td>{{ device.device_id }}</td> 
                              <!--Estado con clase -->
-                            <td><span :class= "getEstadoClass(device.estado)">{{ device.estado }}</span></td> 
+                            <td><span [class]=" device.estado | deviceStatus ">{{device.estado}}</span></td> 
                              <!--Mostrar niveles de batería -->
-                            <td>{{ device.vbat }} V</td> 
+                            <td>{{ device.vbat | number:'1.2-2' }} V</td> 
                              <!--Mostrar niveles de batería anterior -->
-                            <td>{{ device.vbat_ant }} V</td> 
+                            <td>{{ device.vbat_ant | number:'1.2-2' }} V</td> 
                              <!--Mostrar temperatura -->
-                            <td>{{ device.temperatura }} °C</td> 
+                            <td>{{ device.temperatura | number:'1.2-2' }} °C</td> 
                              <!--Mostrar número de serie -->
                             <td>{{ device.serial_number }}</td> 
                               <!--Mostrar momento de muestra -->
