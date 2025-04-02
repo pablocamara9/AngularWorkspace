@@ -5,11 +5,11 @@
       <input v-model="search" class="form-control" placeholder="Buscar...">
     </div>
     <div class="col-md-3">
-      <select v-model="itemsPerPage" class="form-select">
-        <option value="5" selected>5 por página</option>
-        <option value="10">10 por página</option>
-        <option value="20">20 por página</option>
-        <option :value="devices.length">Todos</option>
+      <select (change)="cambiarVista($event)" v-model="itemsPerPage" class="form-select">
+        <option [value]="5" selected>5 por página</option>
+        <option [value]="10">10 por página</option>
+        <option [value]="20">20 por página</option>
+        <option [value]="devices.length">Todos</option>
       </select>
     </div>
     <div class="col-md-3">
@@ -78,31 +78,32 @@
 
       </thead>
                       <!-- Datos de la tabla -->
-                       <!--
+                       
                       <tbody>
-                        <tr v-for="device in paginatedDevices" :key= "device.idas_control">
-                             Mostrar datos en la tabla 
+                        <!--<tr v-for="device in paginatedDevices" :key= "device.idas_control">-->
+                          <tr *ngFor="let device of devices.slice(0, itemsPerPage)">
+                             <!--Mostrar datos en la tabla -->
                             <td>{{ device.idas_control }}</td> 
                             <td>{{ device.device_id }}</td> 
-                             Estado con clase 
-                            <td><span :class= "getEstadoClass(device.estado)">{{ getEstadoLabel(device.estado) }}</span></td> 
-                             Mostrar niveles de batería 
+                             <!--Estado con clase -->
+                            <td><span :class= "getEstadoClass(device.estado)">{{ device.estado }}</span></td> 
+                             <!--Mostrar niveles de batería -->
                             <td>{{ device.vbat }} V</td> 
-                             Mostrar niveles de batería anterior 
+                             <!--Mostrar niveles de batería anterior -->
                             <td>{{ device.vbat_ant }} V</td> 
-                             Mostrar temperatura 
+                             <!--Mostrar temperatura -->
                             <td>{{ device.temperatura }} °C</td> 
-                             Mostrar número de serie 
+                             <!--Mostrar número de serie -->
                             <td>{{ device.serial_number }}</td> 
-                              Mostrar momento de muestra 
-                             <td>{{ formatDate(device.momento_muestra) }}</td> 
-                              Mostrar régimen 
+                              <!--Mostrar momento de muestra -->
+                             <td>{{ device.momento_muestra | date }}</td> 
+                              <!--Mostrar régimen -->
                              <td>{{ device.as_regimenfk }}</td> 
-                              Mostrar última actualización 
-                             <td>{{ formatDate(device.updated_at) }}</td> 
-                        </tr> 
+                              <!--Mostrar última actualización -->
+                             <td>{{ device.updated_at | date }}</td> 
+                          </tr> 
                     </tbody>
-                    -->
+                    
     </table>
     <div class="mt-2 text-muted">
       Total de registros: 0
