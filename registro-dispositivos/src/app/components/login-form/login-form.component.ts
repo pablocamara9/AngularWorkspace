@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login-form',
@@ -16,7 +17,13 @@ export class LoginFormComponent {
 
   validarFormulario() {
     if(this.email === '' || this.password === '') {
-      alert('No puedes dejar campos vacíos. Por favor, rellénalos.');
+      Swal.fire({
+        title: 'Error',
+        text: 'Introduce un email y una contraseña',
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#212529'
+      })
     } else {
       this.router.navigate(['/devices']);
     }
