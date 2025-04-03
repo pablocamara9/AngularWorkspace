@@ -1,0 +1,41 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="main card text-white" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+              <div class="md-5 mt-md-4">
+  
+                <h2 class="fw-bold mb-2 text-uppercase">Bienvenido</h2>
+                <p class="text-white-50 mb-5">Por favor introduce tu usuario y contraseña</p>
+  
+                <div data-mdb-input-init class="form-outline form-white mb-4">
+                  <input type="email" id="email" class="form-control form-control-lg" [(ngModel)]="email" />
+                  <label class="form-label" for="email">Email</label>
+                </div>
+  
+                <div data-mdb-input-init class="form-outline form-white mb-4">
+                  <input type="password" id="password" class="form-control form-control-lg" [(ngModel)]="password" />
+                  <label class="form-label" for="password">Contraseña</label>
+                </div>
+  
+                <p class="small pb-lg-2"><a class="text-white-50" href="#!">Olvidaste tu contraseña?</a></p>
+  
+                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit" (click)="validarFormulario()">Acceder <i class="bi bi-arrow-right"></i></button>
+  
+                <div class="d-flex justify-content-center text-center">
+                  <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                  <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                  <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                </div>
+  
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

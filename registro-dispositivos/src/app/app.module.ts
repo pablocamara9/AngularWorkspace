@@ -8,12 +8,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { DeviceStatusPipe } from './pipes/device-status.pipe';
 import { FormsModule } from '@angular/forms';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroDispositivosComponent,
-    DeviceStatusPipe
+    DeviceStatusPipe,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
