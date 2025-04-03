@@ -8,12 +8,10 @@ export class DeviceStatusPipe implements PipeTransform {
 
   transform(value: string): string {
     switch (value.toLowerCase()) {
-      case 'nuevo':
-        return 'text-green';
-      case 'usado':
-        return 'text-red';
-      case 'reparado':
-        return 'text-yellow';
+      case 'activo':
+        return 'badge bg-success';
+      case 'inactivo':
+        return 'badge bg-danger';
       default:
         return 'text-default';
     }
