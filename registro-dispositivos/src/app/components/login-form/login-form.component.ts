@@ -17,7 +17,7 @@ export class LoginFormComponent {
   constructor(private router: Router) { }
 
   validarFormulario() {
-    if(this.email === '' || this.password === '') {
+    if (this.email === '' || this.password === '') {
       Swal.fire({
         title: 'Error',
         text: 'Introduce un email y una contraseña',
@@ -26,8 +26,36 @@ export class LoginFormComponent {
         confirmButtonColor: '#212529'
       })
     } else {
-      this.router.navigate(['/devices']);
+      console.log(this.getToken(this.email, this.password));
+      //this.router.navigate(['/devices']);
     }
   }
+  
 
+  // In your external page JavaScript
+  getToken(email: string, password: string) {
+    fetch('https://e-sda.noxium.es/admin-api/generate-token', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: email, password: password })
+
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          console.log('Token:', data.token);
+          // Store the token securely (e.g., in memory)
+          // Use the token for subsequent requests
+        } else {
+          console.error('Error getting token:', data.message);
+          // Display an error message to the user
+        }
+      })
+      .catch(error => {
+        console.error('Error getting token:', error);
+        // Display an error message to the user
+      });
+  }
 }
