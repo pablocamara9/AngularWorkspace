@@ -9,13 +9,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { DeviceStatusPipe } from './pipes/device-status.pipe';
 import { FormsModule } from '@angular/forms';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroDispositivosComponent,
     DeviceStatusPipe,
-    LoginFormComponent
+    LoginFormComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
